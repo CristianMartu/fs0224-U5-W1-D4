@@ -55,18 +55,18 @@ public class BeansConfiguration {
         return new Drink("Wine (0.75l, 13%)", 607, 7.49);
     }
 
-    @Bean(name = "pizza margherita")
-    public Pizza getPizzaMargherita(){
-        return new Pizza("Pizza Margherita", 1104, 4.99);
-    }
-
-    @Bean(name = "hawaiian pizza")
-    public Pizza getHawaiianPizza(){
-        return new Pizza("Hawaiian Pizza", 1024, 6.49);
-    }
-
-    @Bean(name = "salami pizza")
-    public Pizza getSalamiPizza(){
-        return new Pizza("Salami Pizza", 1160, 5.99);
-    }
+//    @Bean(name = "pizza margherita")
+//    public Pizza getPizzaMargherita(){
+//        return new Pizza("Pizza Margherita", 1104, 4.99);
+//    }
+//
+//    @Bean(name = "hawaiian pizza")
+//    public Pizza getHawaiianPizza(){
+//        return new Pizza("Hawaiian Pizza", 1024, 6.49);
+//    }
+//
+//    @Bean(name = "salami pizza")
+//    public Pizza getSalamiPizza(){
+//        return new Pizza("Salami Pizza", 1160, 5.99);
+//    }
 }

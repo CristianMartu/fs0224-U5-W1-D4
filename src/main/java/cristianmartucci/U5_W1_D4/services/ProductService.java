@@ -3,6 +3,7 @@ package cristianmartucci.U5_W1_D4.services;
 import cristianmartucci.U5_W1_D4.entities.Product;
 import cristianmartucci.U5_W1_D4.entities.Topping;
 import cristianmartucci.U5_W1_D4.repositories.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

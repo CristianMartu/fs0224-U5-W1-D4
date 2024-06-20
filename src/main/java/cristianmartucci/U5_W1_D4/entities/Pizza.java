@@ -1,27 +1,26 @@
 package cristianmartucci.U5_W1_D4.entities;
 
-import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@DiscriminatorValue("pizzas")
 @NoArgsConstructor
 @Getter
 @Setter
 public class Pizza extends Product {
 
-//    @OneToMany(mappedBy = "pizza")
-//    private List<Topping> toppings;
+    @ManyToMany(mappedBy = "pizzaList")
+    private List<Topping> toppings;
 
-    public Pizza(String name, double price, double calories) {
-        super(name, price, calories);
+    public Pizza(String name, double calories, double price, List<Topping> toppings) {
+        super(name, calories, price);
+        this.toppings = toppings;
     }
 
     @Override
@@ -31,6 +30,19 @@ public class Pizza extends Product {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", calories=" + calories +
+                ", toppings=" + toppings +
                 '}';
     }
+
+
+//    @Override
+//    public String toString() {
+//        return "Pizza{" +
+//                "toppings=" + toppings +
+//                ", product_id=" + product_id +
+//                ", name='" + name + '\'' +
+//                ", price=" + price +
+//                ", calories=" + calories +
+//                '}';
+//    }
 }

@@ -6,8 +6,8 @@ import lombok.*;
 import java.util.UUID;
 
 @Entity
-//@Table(name = "products")
-@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "product_type")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -20,19 +20,9 @@ public abstract class Product {
     protected double calories;
 
 
-    public Product(String name, double price, double calories) {
+    public Product(String name, double calories, double price) {
         this.name = name;
-        this.price = price;
         this.calories = calories;
+        this.price = price;
     }
-
-//    @Override
-//    public String toString() {
-//        return "Product{" +
-//                "product_id=" + product_id +
-//                ", name='" + name + '\'' +
-//                ", price=" + price +
-//                ", calories=" + calories +
-//                '}';
-//    }
 }

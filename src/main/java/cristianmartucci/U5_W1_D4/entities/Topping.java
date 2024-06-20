@@ -4,22 +4,24 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.util.List;
+
 
 @Entity
-//@DiscriminatorValue("toppings")
 @NoArgsConstructor
 @Getter
 @Setter
-//@ToString
 public class Topping extends Product{
 
-//    @OneToMany
-//    @JoinColumn(name = "pizza_id")
-//    private Pizza pizza;
+    @ManyToMany
+    @JoinTable(name = "topping_pizza",
+        joinColumns = @JoinColumn(name = "topping_id"),
+        inverseJoinColumns = @JoinColumn(name = "pizza_id"))
+    private List<Pizza> pizzaList;
 
-    public Topping(String name, double price, double calories) {
-        super(name, price, calories);
+    public Topping(String name, double calories, double price) {
+        super(name, calories, price);
     }
 
     @Override

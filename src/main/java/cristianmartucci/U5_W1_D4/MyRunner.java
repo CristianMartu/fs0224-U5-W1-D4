@@ -6,12 +6,16 @@ import cristianmartucci.U5_W1_D4.entities.Menu;
 import cristianmartucci.U5_W1_D4.entities.Pizza;
 import cristianmartucci.U5_W1_D4.entities.Topping;
 import cristianmartucci.U5_W1_D4.services.ProductService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
+@Transactional
 public class MyRunner implements CommandLineRunner {
 
     @Autowired
@@ -36,9 +40,9 @@ public class MyRunner implements CommandLineRunner {
         Drink drink2 = (Drink) context.getBean("water");
         Drink drink3 = (Drink) context.getBean("wine");
 
-        Pizza pizza = (Pizza) context.getBean("pizza margherita");
-        Pizza pizza2 = (Pizza) context.getBean("hawaiian pizza");
-        Pizza pizza3 = (Pizza) context.getBean("salami pizza");
+        Pizza pizza = new Pizza("Pizza Margherita", 1104, 4.99, Arrays.asList(topping,topping2));
+        Pizza pizza2 = new Pizza("Hawaiian Pizza", 1024, 6.49, Arrays.asList(topping,topping2, topping5));
+        Pizza pizza3 = new Pizza("Salami Pizza", 1160, 5.99, Arrays.asList(topping,topping2, topping6));
 
 //        productService.saveProduct(topping);
 //        productService.saveProduct(topping2);
@@ -56,6 +60,7 @@ public class MyRunner implements CommandLineRunner {
 //        productService.saveProduct(pizza3);
 
 //        System.out.println(menu);
+//        System.out.println(pizza);
         System.out.println("----------FIND BY NAME---------");
         productService.filterByName("Tomato").forEach(System.out::println);
         productService.filterByName("Pizza Margherita").forEach(System.out::println);
@@ -63,7 +68,7 @@ public class MyRunner implements CommandLineRunner {
 
         System.out.println("----------FIND BY NAME PARTIALS---------");
         productService.filterByNameLike("tomat").forEach(System.out::println);
-        productService.filterByNameLike("pizza margheri").forEach(System.out::println);
+        productService.filterByNameLike("s").forEach(System.out::println);
         productService.filterByNameLike("chees").forEach(System.out::println);
 
         System.out.println("-------------------");

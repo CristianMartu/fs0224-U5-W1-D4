@@ -3,6 +3,7 @@ package cristianmartucci.U5_W1_D4.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +20,8 @@ public abstract class Product {
     protected double price;
     protected double calories;
 
+    @ManyToMany(mappedBy = "products")
+    private List<Menu> menuList;
 
     public Product(String name, double calories, double price) {
         this.name = name;

@@ -11,7 +11,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 public abstract class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,4 +25,14 @@ public abstract class Product {
         this.price = price;
         this.calories = calories;
     }
+
+//    @Override
+//    public String toString() {
+//        return "Product{" +
+//                "product_id=" + product_id +
+//                ", name='" + name + '\'' +
+//                ", price=" + price +
+//                ", calories=" + calories +
+//                '}';
+//    }
 }

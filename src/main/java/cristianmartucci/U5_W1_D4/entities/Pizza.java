@@ -15,7 +15,6 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 public class Pizza extends Product {
 
 //    @OneToMany(mappedBy = "pizza")
@@ -23,5 +22,15 @@ public class Pizza extends Product {
 
     public Pizza(String name, double price, double calories) {
         super(name, price, calories);
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza{" +
+                "product_id=" + product_id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", calories=" + calories +
+                '}';
     }
 }

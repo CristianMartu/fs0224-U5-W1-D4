@@ -11,7 +11,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+//@ToString
 public class Topping extends Product{
 
 //    @OneToMany
@@ -20,5 +20,15 @@ public class Topping extends Product{
 
     public Topping(String name, double price, double calories) {
         super(name, price, calories);
+    }
+
+    @Override
+    public String toString() {
+        return "Topping{" +
+                "product_id=" + product_id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", calories=" + calories +
+                '}';
     }
 }
